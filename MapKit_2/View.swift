@@ -13,12 +13,28 @@ class View: UIViewController {
 
     private let locationManager = CLLocationManager()
     
-    private let mapView: MKMapView = {
+    private let map: (view: MKMapView, location: (CLLocation)->()) = {
+        
+        let map = MKMapView()
+        map.backgroundColor = .systemRed
+        
+        let location = {(location: CLLocation) in
+            
+            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
+                                                longitude: location.coordinate.longitude)
+            
+            map.setRegion(MKCoordinateRegion(center: center,
+                                                 span: MKCoordinateSpan(latitudeDelta: 0.1,
+                                                                        longitudeDelta: 0.1)),
+                              animated: true)
+            
+            let pin = MKPointAnnotation()
+            pin.coordinate = location.coordinate
+            
+            map.addAnnotation(pin)
+        }
 
-        let mapView = MKMapView()
-        mapView.backgroundColor = .systemRed
-
-        return mapView
+        return (view: map, location: location)
     }()
     
     override func viewDidLoad() {
@@ -26,9 +42,9 @@ class View: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemOrange
-        view.addSubview(mapView)
+        view.addSubview(map.view)
 
-        mapView.constraint(by: [.top,.leading,.trailing,.bottom])
+        map.view.constraint(by: [.top,.leading,.trailing,.bottom])
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,22 +55,6 @@ class View: UIViewController {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
-    }
-    
-    private func render(_ location: CLLocation) {
-        
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
-                                            longitude: location.coordinate.longitude)
-        
-        mapView.setRegion(MKCoordinateRegion(center: center,
-                                             span: MKCoordinateSpan(latitudeDelta: 0.1,
-                                                                    longitudeDelta: 0.1)),
-                          animated: true)
-        
-        let pin = MKPointAnnotation()
-        pin.coordinate = location.coordinate
-        
-        mapView.addAnnotation(pin)
     }
 }
 
@@ -67,7 +67,7 @@ extension View: CLLocationManagerDelegate {
             
             locationManager.stopUpdatingLocation()
             
-            render(location)
+            map.location(location)
         }
     }
 }
