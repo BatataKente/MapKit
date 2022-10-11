@@ -50,6 +50,11 @@ class View: UIViewController {
                                              span: MKCoordinateSpan(latitudeDelta: 0.1,
                                                                     longitudeDelta: 0.1)),
                           animated: true)
+        
+        let pin = MKPointAnnotation()
+        pin.coordinate = location.coordinate
+        
+        mapView.addAnnotation(pin)
     }
 }
 
