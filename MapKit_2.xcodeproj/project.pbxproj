@@ -13,6 +13,7 @@
 		14B0471D28F5A82D008E27E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B0471C28F5A82D008E27E9 /* Assets.xcassets */; };
 		14B0472028F5A82D008E27E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B0471E28F5A82D008E27E9 /* LaunchScreen.storyboard */; };
 		14B0474728F5A947008E27E9 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0474628F5A947008E27E9 /* UIView.swift */; };
+		14CEA55128F5DA9F008CF822 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CEA55028F5DA9F008CF822 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		14B0472628F5A82E008E27E9 /* MapKit_2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapKit_2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B0473028F5A82E008E27E9 /* MapKit_2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapKit_2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B0474628F5A947008E27E9 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		14CEA55028F5DA9F008CF822 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				14B0474428F5A92D008E27E9 /* AppUtils */,
 				14B0474328F5A921008E27E9 /* AppDelegate */,
 				14B0471728F5A82A008E27E9 /* View.swift */,
+				14CEA55028F5DA9F008CF822 /* ViewModel.swift */,
 				14B0471E28F5A82D008E27E9 /* LaunchScreen.storyboard */,
 				14B0472128F5A82D008E27E9 /* Info.plist */,
 			);
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14CEA55128F5DA9F008CF822 /* ViewModel.swift in Sources */,
 				14B0474728F5A947008E27E9 /* UIView.swift in Sources */,
 				14B0471828F5A82A008E27E9 /* View.swift in Sources */,
 				14B0471428F5A82A008E27E9 /* AppDelegate.swift in Sources */,
