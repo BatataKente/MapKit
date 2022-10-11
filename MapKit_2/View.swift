@@ -43,18 +43,13 @@ class View: UIViewController {
         
         view.backgroundColor = .systemOrange
         view.addSubview(map.view)
-
-        map.view.constraint(by: [.top,.leading,.trailing,.bottom])
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(animated)
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
+
+        map.view.constraint(by: [.top,.leading,.trailing,.bottom])
     }
 }
 
